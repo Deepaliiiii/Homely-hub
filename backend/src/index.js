@@ -14,6 +14,14 @@ dotenv.config();
 
 const app = express();
 
+//cors
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || true,
+    credentials: true,
+  })
+);
+
 //express.json
 app.use(express.json({limit:"100mb"}))
 
@@ -23,7 +31,7 @@ app.use(express.urlencoded({limit:"100mb", extended:true}))
 //cookieParser
 app.use(cookieParser())
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 
 //test route
