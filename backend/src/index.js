@@ -14,14 +14,6 @@ dotenv.config();
 
 const app = express();
 
-//cors
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || true,
-    credentials: true,
-  })
-);
-
 //express.json
 app.use(express.json({limit:"100mb"}))
 
